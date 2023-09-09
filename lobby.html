@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>WebRTC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="lobby.css" />
+  </head>
+  <body>
+    <main id="lobby-container">
+      <div id="form-container">
+        <div id="form_container_header">
+          <p>👋 Create or join a room</p>
+        </div>
+        <div id="form_content_wrapper">
+          <form id="room-join-form">
+            <input type="text" name="room_id" required />
+            <input type="submit" value="Join Room" />
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script>
+    let form = document.getElementById("room-join-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let roomId = e.target.room_id.value;
+      window.location = `index.html?roomId=${roomId}`;
+    });
+  </script>
+</html>
